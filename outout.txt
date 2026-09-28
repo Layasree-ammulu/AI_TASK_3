@@ -1,0 +1,276 @@
+C:\study\InternShips\AI\task 3>docker --version
+Docker version 29.8.0, build 88096ef
+
+C:\study\InternShips\AI\task 3>docker info
+Client:
+ Version:    29.8.0
+ Context:    desktop-linux
+ Debug Mode: false
+ Plugins:
+  agent: Docker AI Agent Runner (Docker Inc.)
+    Version:  v1.140.0
+    Path:     C:\Users\admin\.docker\cli-plugins\docker-agent.exe
+  ai: Docker AI Agent - Ask Gordon (Docker Inc.)
+    Version:  v1.31.0
+    Path:     C:\Users\admin\.docker\cli-plugins\docker-ai.exe
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.37.1
+    Path:     C:\Users\admin\.docker\cli-plugins\docker-buildx.exe
+  compose: Docker Compose (Docker Inc.)
+    Version:  v5.5.1
+    Path:     C:\Users\admin\.docker\cli-plugins\docker-compose.exe
+  debug: Get a shell into any image or container (Docker Inc.)
+    Version:  0.0.47
+    Path:     C:\Users\admin\.docker\cli-plugins\docker-debug.exe
+  desktop: Docker Desktop commands (Docker Inc.)
+    Version:  v0.4.4
+    Path:     C:\Users\admin\.docker\cli-plugins\docker-desktop.exe
+  dhi: CLI for managing Docker Hardened Images (Docker Inc.)
+    Version:  v0.0.7
+    Path:     C:\Users\admin\.docker\cli-plugins\docker-dhi.exe
+  extension: Manages Docker extensions (Docker Inc.)
+    Version:  v0.2.31
+    Path:     C:\Users\admin\.docker\cli-plugins\docker-extension.exe
+  init: Creates Docker-related starter files for your project (Docker Inc.)
+    Version:  v1.4.0
+    Path:     C:\Users\admin\.docker\cli-plugins\docker-init.exe
+  mcp: Docker MCP Plugin (Docker Inc.)
+    Version:  v0.43.3
+    Path:     C:\Users\admin\.docker\cli-plugins\docker-mcp.exe
+  model: Docker Model Runner (Docker Inc.)
+    Version:  v1.2.6
+    Path:     C:\Users\admin\.docker\cli-plugins\docker-model.exe
+  offload: Docker Offload (Docker Inc.)
+    Version:  v0.6.27
+    Path:     C:\Users\admin\.docker\cli-plugins\docker-offload.exe
+  pass: Docker Pass Secrets Manager Plugin (beta) (Docker Inc.)
+    Version:  v0.2.2
+    Path:     C:\Users\admin\.docker\cli-plugins\docker-pass.exe
+  sandbox: "docker sandbox" is deprecated, use Docker Sandboxes instead (Docker Inc.)
+    Version:  v0.13.0
+    Path:     C:\Users\admin\.docker\cli-plugins\docker-sandbox.exe
+  scout: Docker Scout (Docker Inc.)
+    Version:  v1.24.0
+    Path:     C:\Users\admin\.docker\cli-plugins\docker-scout.exe
+
+Server:
+ Containers: 0
+  Running: 0
+  Paused: 0
+  Stopped: 0
+ Images: 0
+ Server Version: 29.8.0
+ Storage Driver: overlayfs
+  driver-type: io.containerd.snapshotter.v1
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Cgroup Version: 2
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+ CDI spec directories:
+  /etc/cdi
+  /var/run/cdi
+ Discovered Devices:
+  cdi: docker.com/gpu=webgpu
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 nvidia runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 1294c24a7da8e5a793ed378161673abe94118892
+ runc version: v1.5.1-0-g8f2685a4
+ init version: de40ad0
+ Security Options:
+  seccomp
+   Profile: builtin
+  cgroupns
+ Kernel Version: 6.18.33.2-microsoft-standard-WSL2
+ Operating System: Docker Desktop
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 8
+ Total Memory: 7.695GiB
+ Name: docker-desktop
+ ID: d027a4e4-12bf-4bf3-9a3e-92c6d94a1948
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ HTTP Proxy: http.docker.internal:3128
+ HTTPS Proxy: http.docker.internal:3128
+ No Proxy: hubproxy.docker.internal
+ Labels:
+  com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+ Experimental: false
+ Insecure Registries:
+  hubproxy.docker.internal:5555
+  ::1/128
+  127.0.0.0/8
+ Live Restore Enabled: false
+ Firewall Backend: iptables
+
+
+C:\study\InternShips\AI\task 3>dir
+ Volume in drive C has no label.
+ Volume Serial Number is BED3-0ADF
+
+ Directory of C:\study\InternShips\AI\task 3
+
+26-Sep-26  04:02 PM    <DIR>          .
+26-Sep-26  02:17 PM    <DIR>          ..
+26-Sep-26  03:58 PM             2,162 app.py
+26-Sep-26  04:02 PM               247 Dockerfile
+25-Sep-26  01:59 PM        39,704,681 dog_cat_model.keras
+26-Sep-26  03:42 PM               104 requirements.txt
+26-Sep-26  03:58 PM    <DIR>          __pycache__
+               4 File(s)     39,707,194 bytes
+               3 Dir(s)  34,817,269,760 bytes free
+
+C:\study\InternShips\AI\task 3>docker build -t dogs-cats-api .
+[+] Building 396.0s (12/12) FINISHED                                                                            docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                            0.1s
+ => => transferring dockerfile: 286B                                                                                            0.0s
+ => [internal] load metadata for docker.io/library/python:3.10-slim                                                             6.2s
+ => [auth] library/python:pull token for registry-1.docker.io                                                                   0.0s
+ => [internal] load .dockerignore                                                                                               0.1s
+ => => transferring context: 2B                                                                                                 0.0s
+ => [1/6] FROM docker.io/library/python:3.10-slim@sha256:31dd4d9529d02d7436659061cb7564cd4733fc90e5e152709a942d53382ec8d0      14.0s
+ => => resolve docker.io/library/python:3.10-slim@sha256:31dd4d9529d02d7436659061cb7564cd4733fc90e5e152709a942d53382ec8d0       0.1s
+ => => sha256:920e618c41a69e0f6d0174ef4e025bec30f31a33d2b5c0470169961424883b1e 249B / 249B                                      0.5s
+ => => sha256:1f43bcf5ef119a40c99f7ce031eea771bd201bd859e4d0c4bb826f325b69b14e 13.91MB / 13.91MB                                7.2s
+ => => sha256:7b0c451348123348c3184b372ada72a6c9c55009bf718c05266ba088ba80461d 1.29MB / 1.29MB                                  2.1s
+ => => sha256:6b37362b3da78869050b894b799ad4df04f1f3b52774087db0d81151570244c8 29.83MB / 29.83MB                                9.0s
+ => => extracting sha256:6b37362b3da78869050b894b799ad4df04f1f3b52774087db0d81151570244c8                                       2.4s
+ => => extracting sha256:7b0c451348123348c3184b372ada72a6c9c55009bf718c05266ba088ba80461d                                       0.4s
+ => => extracting sha256:1f43bcf5ef119a40c99f7ce031eea771bd201bd859e4d0c4bb826f325b69b14e                                       1.6s
+ => => extracting sha256:920e618c41a69e0f6d0174ef4e025bec30f31a33d2b5c0470169961424883b1e                                       0.1s
+ => [internal] load build context                                                                                               4.9s
+ => => transferring context: 39.72MB                                                                                            4.8s
+ => [2/6] WORKDIR /app                                                                                                          0.3s
+ => [3/6] COPY requirements.txt .                                                                                               0.1s
+ => [4/6] RUN pip install --no-cache-dir -r requirements.txt                                                                  221.7s
+ => [5/6] COPY app.py .                                                                                                         0.4s
+ => [6/6] COPY dog_cat_model.keras .                                                                                            0.1s
+ => exporting to image                                                                                                        152.5s
+ => => exporting layers                                                                                                       114.4s
+ => => exporting manifest sha256:994db1ea3658fee8601c03b1ca22616a291dd618e1479bdf13510666334e213f                               0.0s
+ => => exporting config sha256:dab3f8d3e34ad947e1bf5bf93c8d9eb1a190fbd3840315c2ad2eeea2dfbee091                                 0.0s
+ => => exporting attestation manifest sha256:b1e8b987399c3ba0ae88d7609ee4891a3a0eb4b1cf479565816762c0204ccd78                   0.0s
+ => => exporting manifest list sha256:ac1d7ed8c86153f28e1c2ad7b576e03160dc299cbf750896b085adc885192b78                          0.0s
+ => => naming to docker.io/library/dogs-cats-api:latest                                                                         0.0s
+ => => unpacking to docker.io/library/dogs-cats-api:latest                                                                     37.8s
+
+C:\study\InternShips\AI\task 3>docker images
+                                                                                                                 i Info →   U  In Use
+IMAGE                  ID             DISK USAGE   CONTENT SIZE   EXTRA
+dogs-cats-api:latest   ac1d7ed8c861       3.57GB          828MB
+
+C:\study\InternShips\AI\task 3>docker run -d -p 8000:8000 --name dogs-cats-container dogs-cats-api
+2a48cdb0c102f9805e95e96cc24d86d14c827bb189558a47c6406346a1415cc2
+
+C:\study\InternShips\AI\task 3>docker ps
+CONTAINER ID   IMAGE           COMMAND                  CREATED          STATUS          PORTS                                         NAMES
+2a48cdb0c102   dogs-cats-api   "uvicorn app:app --h…"   57 seconds ago   Up 56 seconds   0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp   dogs-cats-container
+
+C:\study\InternShips\AI\task 3>docker exec -it dogs-cats-container ls -lh /app
+total 38M
+drwxr-xr-x 2 root root 4.0K Sep 28 11:01 __pycache__
+-rwxr-xr-x 1 root root 2.2K Sep 26 10:28 app.py
+-rwxr-xr-x 1 root root  38M Sep 25 08:29 dog_cat_model.keras
+-rwxr-xr-x 1 root root  104 Sep 26 10:12 requirements.txt
+
+What's next:
+    Try Docker Debug for seamless, persistent debugging tools in any container or image → docker debug dogs-cats-container
+    Learn more at https://docs.docker.com/go/debug-cli/
+
+C:\study\InternShips\AI\task 3>docker exec -it dogs-cats-container pip list
+Package            Version
+------------------ -----------
+absl-py            2.5.0
+annotated-doc      0.0.5
+annotated-types    0.8.0
+anyio              4.15.1
+astunparse         1.6.3
+certifi            2026.7.22
+charset-normalizer 3.5.1
+click              8.5.0
+cloudpickle        3.1.2
+contourpy          1.3.2
+cycler             0.12.1
+exceptiongroup     1.3.1
+fastapi            0.141.1
+flatbuffers        25.12.19
+fonttools          4.65.0
+gast               0.7.0
+google-pasta       0.2.0
+grpcio             1.84.0
+h11                0.16.0
+h5py               3.14.0
+idna               3.20
+joblib             1.6.0
+keras              3.12.4
+kiwisolver         1.5.1
+libclang           18.1.1
+markdown-it-py     4.2.0
+matplotlib         3.10.9
+mdurl              0.1.2
+ml_dtypes          0.6.0
+namex              0.1.0
+numpy              2.2.6
+opt_einsum         3.4.0
+optree             0.20.0
+packaging          26.3
+pandas             2.3.3
+pillow             12.3.0
+pip                23.0.1
+protobuf           7.36.2
+pydantic           2.13.5
+pydantic_core      2.46.5
+Pygments           2.21.0
+pyparsing          3.3.3
+python-dateutil    2.9.0.post0
+python-multipart   0.0.32
+pytz               2026.4
+requests           2.34.2
+rich               15.0.0
+scikit-learn       1.7.2
+scipy              1.15.3
+seaborn            0.13.2
+setuptools         79.0.1
+six                1.17.0
+starlette          1.7.0
+tensorflow         2.21.0
+termcolor          3.3.0
+threadpoolctl      3.7.0
+typing_extensions  4.16.0
+typing-inspection  0.4.4
+tzdata             2026.4
+urllib3            2.8.0
+uvicorn            0.54.0
+wheel              0.46.3
+wrapt              2.5.0
+
+[notice] A new release of pip is available: 23.0.1 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+
+What's next:
+    Try Docker Debug for seamless, persistent debugging tools in any container or image → docker debug dogs-cats-container
+    Learn more at https://docs.docker.com/go/debug-cli/
+
+
+C:\study\InternShips\AI\task 3>uvicorn app:app --reload
+INFO:     Will watch for changes in these directories: ['C:\\study\\InternShips\\AI\\task 3']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [13768] using StatReload
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1790593721.963365   14904 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1790593734.251384   14904 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1790593743.332814   14904 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+Dogs vs Cats model loaded successfully!
+INFO:     Started server process [9204]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:51270 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63417 - "POST /predict HTTP/1.1" 200 OK
